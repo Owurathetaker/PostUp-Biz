@@ -1,11 +1,13 @@
 // src/app/page.tsx
-import Link from "next/link";
+import Image from "next/image";
+import type { ReactNode } from "react";
 
 const WHATSAPP_DISPLAY = "020 827 6651";
 const WHATSAPP_LINK =
   "https://wa.me/233208276651?text=Hi%20Postup%20Biz%20👋🏽%0AI%20want%20help%20getting%20my%20business%20online.%0AHere%20is%20my%20business%20page%20or%20location:";
 
 function LogoMark() {
+  // Simple, consistent PU monogram in a rounded badge (no external asset needed)
   return (
     <div className="flex items-center gap-2">
       <div className="relative grid size-9 place-items-center rounded-xl bg-gradient-to-br from-indigo-600 to-emerald-500 text-white shadow-sm">
@@ -29,14 +31,8 @@ function Icon({
     case "spark":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            className={common}
-            d="M12 2l1.2 5.2L18 9l-4.8 1.8L12 16l-1.2-5.2L6 9l4.8-1.8L12 2z"
-          />
-          <path
-            className={common}
-            d="M5 14l.7 3L9 18l-3.3 1-0.7 3-0.7-3L1 18l3.3-1 .7-3z"
-          />
+          <path className={common} d="M12 2l1.2 5.2L18 9l-4.8 1.8L12 16l-1.2-5.2L6 9l4.8-1.8L12 2z" />
+          <path className={common} d="M5 14l.7 3L9 18l-3.3 1-0.7 3-0.7-3L1 18l3.3-1 .7-3z" />
         </svg>
       );
     case "whatsapp":
@@ -55,10 +51,7 @@ function Icon({
     case "map":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            className={common}
-            d="M12 21s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10z"
-          />
+          <path className={common} d="M12 21s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10z" />
           <path className={common} d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
         </svg>
       );
@@ -92,7 +85,7 @@ function Icon({
   }
 }
 
-function Badge({ children }: { children: React.ReactNode }) {
+function Badge({ children }: { children: ReactNode }) {
   return (
     <span className="inline-flex items-center rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur">
       {children}
@@ -100,15 +93,7 @@ function Badge({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Card({
-  title,
-  desc,
-  icon,
-}: {
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-}) {
+function Card({ title, desc, icon }: { title: string; desc: string; icon: ReactNode }) {
   return (
     <div className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start gap-3">
@@ -124,35 +109,104 @@ function Card({
   );
 }
 
+function NavButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      className="rounded-full px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+    >
+      {children}
+    </a>
+  );
+}
+
+function HeroVisual() {
+  // Use a real image if you add it to /public/hero-mock.png.
+  // Otherwise, a clean “mockup-style” visual shows the idea without big text blocks.
+  const src = "/hero-mock.png";
+
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur">
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-medium text-slate-600">What customers see</p>
+        <span className="inline-flex items-center gap-2 text-xs text-slate-600">
+          <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+          Simple & clear
+        </span>
+      </div>
+
+      <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        {/* Soft fallback behind the image */}
+        <div className="relative aspect-[16/11]">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
+          <div className="absolute inset-0 p-5">
+            {/* Minimal “UI skeleton” so it still communicates even without an image */}
+            <div className="rounded-xl border border-slate-200 bg-white/80 p-4">
+              <div className="flex items-center justify-between">
+                <div className="h-3 w-24 rounded bg-slate-200" />
+                <div className="h-6 w-24 rounded-full bg-slate-900/90" />
+              </div>
+              <div className="mt-4 h-4 w-2/3 rounded bg-slate-200" />
+              <div className="mt-2 h-3 w-1/2 rounded bg-slate-200" />
+
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-slate-200 bg-white p-3">
+                  <div className="h-3 w-24 rounded bg-slate-200" />
+                  <div className="mt-2 h-8 w-full rounded bg-slate-100" />
+                </div>
+                <div className="rounded-xl border border-slate-200 bg-white p-3">
+                  <div className="h-3 w-24 rounded bg-slate-200" />
+                  <div className="mt-2 h-8 w-full rounded bg-slate-100" />
+                </div>
+              </div>
+
+              <div className="mt-4 flex gap-2">
+                <div className="h-10 flex-1 rounded-xl bg-slate-900/90" />
+                <div className="h-10 w-12 rounded-xl bg-slate-100" />
+              </div>
+            </div>
+          </div>
+
+          <Image
+            src={src}
+            alt="Example business page preview"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={false}
+          />
+        </div>
+      </div>
+
+      <p className="mt-4 text-xs text-slate-600">
+        A clear page with prices, location, and WhatsApp ordering — so customers don’t struggle.
+      </p>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main id="top" className="min-h-screen bg-white text-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <LogoMark />
 
-          <nav className="flex items-center gap-4 text-sm">
-            {/* Keep the current homepage flow */}
-            <a href="#work" className="hover:underline">
-              Overview
-            </a>
-
-            <a href="#process" className="hover:underline">
-              How it works
-            </a>
-
-            <a href="#pricing" className="hover:underline">
-              Pricing
-            </a>
-
-            {/* Work (mockups) should go to the portfolio page */}
-            <Link href="/work" className="hover:underline">
-              Work
-            </Link>
+          {/* “How it works” removed from header (still exists in scroll below). */}
+          <nav className="flex items-center gap-1">
+            <NavButton href="#top">Overview</NavButton>
+            <NavButton href="/work">Work</NavButton>
+            <NavButton href="#pricing">Pricing</NavButton>
 
             <a
-              className="rounded-full bg-slate-900 px-4 py-2 text-white shadow-sm transition hover:bg-slate-800"
+              className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
@@ -184,8 +238,8 @@ export default function Page() {
               </h1>
 
               <p className="mt-4 text-slate-700">
-                Clear pages that show your prices, location, and how customers can order or contact you
-                easily — without confusion.
+                Clear pages that show your prices, location, and how customers can order or
+                contact you easily — without confusion.
               </p>
 
               <p className="mt-3 text-sm text-slate-600">
@@ -193,14 +247,12 @@ export default function Page() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                {/* Work (mockups) should route to /work */}
-                <Link
+                <a
                   href="/work"
                   className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-medium shadow-sm transition hover:bg-slate-50"
                 >
                   View our mockups
-                </Link>
-
+                </a>
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
@@ -209,15 +261,9 @@ export default function Page() {
                 >
                   Chat on WhatsApp
                 </a>
-
-                {/* The current homepage section still exists — give it its own button */}
-                <a
-                  href="#work"
-                  className="rounded-xl border border-slate-200 bg-white/70 px-5 py-3 text-sm font-medium text-slate-900 shadow-sm backdrop-blur transition hover:bg-white"
-                >
-                  Quick overview
-                </a>
               </div>
+
+              {/* Quick overview button removed (per request) */}
 
               <div className="mt-8 grid grid-cols-3 gap-3 text-xs">
                 <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
@@ -246,54 +292,8 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur">
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-medium text-slate-600">Example of what we build</p>
-                <span className="inline-flex items-center gap-2 text-xs text-slate-600">
-                  <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Simple & clear
-                </span>
-              </div>
-
-              <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold">Business page</p>
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">
-                    WhatsApp ordering
-                  </span>
-                </div>
-
-                <ul className="mt-4 space-y-3 text-sm text-slate-700">
-                  <li className="flex gap-3">
-                    <Icon name="paint" className="mt-0.5 size-5 text-slate-800" />
-                    <span>Menu or product list with clear prices</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <Icon name="whatsapp" className="mt-0.5 size-5 text-slate-800" />
-                    <span>One tap to WhatsApp (order / ask / book)</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <Icon name="map" className="mt-0.5 size-5 text-slate-800" />
-                    <span>Location + directions so customers don’t struggle</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <Icon name="search" className="mt-0.5 size-5 text-slate-800" />
-                    <span>Helps people find you online over time</span>
-                  </li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <Badge>Restaurants</Badge>
-                  <Badge>Boutiques</Badge>
-                  <Badge>Thrift sellers</Badge>
-                  <Badge>Services</Badge>
-                </div>
-              </div>
-
-              <p className="mt-4 text-xs text-slate-600">
-                We design a mockup first so you can see it before anything is built.
-              </p>
-            </div>
+            {/* Replaces the “Example of what we build” text card with a visual */}
+            <HeroVisual />
           </div>
         </div>
       </section>
@@ -335,43 +335,31 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Quick examples (Option A) */}
+      {/* Work (summary) */}
       <section id="work" className="border-t border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-12">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="flex items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-semibold">Quick examples</h2>
+              <h2 className="text-2xl font-semibold">Work examples</h2>
               <p className="mt-2 text-slate-600">
-                A quick preview of what we build. For the full mockups, visit the Work page.
+                We customize the look per business — but keep the experience simple and clear.
               </p>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/work"
-                className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-slate-50"
-              >
-                See full mockups →
-              </Link>
-
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-              >
-                Get a sample for my business
-              </a>
-            </div>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+            >
+              Get a sample for my business
+            </a>
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-xs font-medium text-slate-500">Restaurants</p>
               <p className="mt-2 font-semibold">Menu + WhatsApp ordering</p>
-              <p className="mt-2 text-sm text-slate-600">
-                Problem: customers ask the same questions daily.
-              </p>
+              <p className="mt-2 text-sm text-slate-600">Problem: customers ask the same questions daily.</p>
               <p className="mt-1 text-sm text-slate-600">
                 Solution: one clear menu page with prices, location, and order button.
               </p>
@@ -380,9 +368,7 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-xs font-medium text-slate-500">Shops & boutiques</p>
               <p className="mt-2 font-semibold">Catalog + fast contact</p>
-              <p className="mt-2 text-sm text-slate-600">
-                Problem: posts get buried and buyers get tired of scrolling.
-              </p>
+              <p className="mt-2 text-sm text-slate-600">Problem: posts get buried and buyers get tired of scrolling.</p>
               <p className="mt-1 text-sm text-slate-600">
                 Solution: a catalog page that shows what’s available and how to buy.
               </p>
@@ -391,27 +377,20 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-xs font-medium text-slate-500">Service businesses</p>
               <p className="mt-2 font-semibold">Simple booking/contact page</p>
-              <p className="mt-2 text-sm text-slate-600">
-                Problem: people can’t find details or trust the service quickly.
-              </p>
+              <p className="mt-2 text-sm text-slate-600">Problem: people can’t find details or trust the service quickly.</p>
               <p className="mt-1 text-sm text-slate-600">
                 Solution: clear service info, pricing, and instant WhatsApp contact.
               </p>
             </div>
           </div>
 
-          <div className="mt-6 flex justify-center">
-            <Link
-              href="/work"
-              className="rounded-xl bg-white px-5 py-3 text-sm font-medium text-slate-900 shadow-sm ring-1 ring-slate-200 transition hover:bg-slate-50"
-            >
-              View full Work page with mockups →
-            </Link>
-          </div>
+          <p className="mt-6 text-sm text-slate-600">
+            Want to see real mockups? Use the Work button in the header (it opens the mockups page).
+          </p>
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How it works (kept in scroll, removed from header) */}
       <section id="process" className="border-t border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-semibold">How it works</h2>
@@ -503,7 +482,6 @@ export default function Page() {
             >
               Ask for a simple quote on WhatsApp
             </a>
-
             <a
               href="#contact"
               className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-medium shadow-sm transition hover:bg-slate-50"
