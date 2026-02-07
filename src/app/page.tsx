@@ -1,6 +1,7 @@
 // src/app/page.tsx
 import Image from "next/image";
 import type { ReactNode } from "react";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const WHATSAPP_LINK =
   "https://wa.me/233208276651?text=Hi%20Postup%20Biz%20👋🏽%0AI%20want%20help%20getting%20my%20business%20online.%0AHere%20is%20my%20business%20page%20or%20location:";
@@ -70,7 +71,10 @@ function Icon({
             className={common}
             d="M12 21s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10z"
           />
-          <path className={common} d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+          <path
+            className={common}
+            d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+          />
         </svg>
       );
     case "search":
@@ -120,16 +124,16 @@ function Icon({
     case "bolt":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            className={common}
-            d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"
-          />
+          <path className={common} d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
         </svg>
       );
     case "video":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path className={common} d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
+          <path
+            className={common}
+            d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"
+          />
           <path className={common} d="M17 10l5-3v10l-5-3v-4z" />
         </svg>
       );
@@ -144,15 +148,7 @@ function Badge({ children }: { children: ReactNode }) {
   );
 }
 
-function Card({
-  title,
-  desc,
-  icon,
-}: {
-  title: string;
-  desc: string;
-  icon: ReactNode;
-}) {
+function Card({ title, desc, icon }: { title: string; desc: string; icon: ReactNode }) {
   return (
     <div className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start gap-3">
@@ -295,14 +291,16 @@ export default function Page() {
             <NavButton href="/work">Work</NavButton>
             <NavButton href="#packages">Packages</NavButton>
 
-            <a
+            {/* ✅ tracked WhatsApp CTA */}
+            <WhatsAppLink
+              eventLabel="header_whatsapp"
               className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
             >
               Get started
-            </a>
+            </WhatsAppLink>
           </nav>
         </div>
       </header>
@@ -343,14 +341,17 @@ export default function Page() {
                 >
                   View our mockups
                 </a>
-                <a
+
+                {/* ✅ tracked WhatsApp CTA */}
+                <WhatsAppLink
+                  eventLabel="hero_whatsapp"
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
                 >
                   Message us
-                </a>
+                </WhatsAppLink>
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-3 text-xs">
@@ -440,7 +441,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Packages (no exact prices) */}
+      {/* Packages */}
       <section id="packages" className="border-t border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex items-end justify-between gap-6">
@@ -519,14 +520,17 @@ export default function Page() {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
+            {/* ✅ tracked WhatsApp CTA */}
+            <WhatsAppLink
+              eventLabel="packages_quote_whatsapp"
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
               className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
             >
               Get a quote (fast)
-            </a>
+            </WhatsAppLink>
+
             <a
               href="#contact"
               className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-medium shadow-sm transition hover:bg-slate-50"
@@ -537,7 +541,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Work (summary) */}
+      {/* Work */}
       <section id="work" className="border-t border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex items-end justify-between gap-6">
@@ -559,7 +563,9 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-xs font-medium text-slate-500">Restaurants</p>
               <p className="mt-2 font-semibold">Menu + quick ordering</p>
-              <p className="mt-2 text-sm text-slate-600">One clear menu page with prices, location, and a strong CTA.</p>
+              <p className="mt-2 text-sm text-slate-600">
+                One clear menu page with prices, location, and a strong CTA.
+              </p>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -627,14 +633,16 @@ export default function Page() {
               <p className="font-semibold text-slate-900">Contact</p>
               <p className="mt-2">Email: {EMAIL}</p>
 
-              <a
+              {/* ✅ tracked WhatsApp CTA */}
+              <WhatsAppLink
+                eventLabel="footer_whatsapp"
                 className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noreferrer"
               >
                 Message us
-              </a>
+              </WhatsAppLink>
 
               <p className="mt-3 text-xs text-slate-500">
                 Tip: Send your business page link + location + what you sell. We’ll reply with a quick direction + next steps.
