@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,7 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://post-up-biz.vercel.app"; // ✅ replace with your real Vercel URL if different
+const GA_ID = "G-C7E69Y2JKM"; // ✅ your measurement ID
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Postup Biz — Simple online presence for businesses",
     template: "%s | Postup Biz",
@@ -20,13 +25,15 @@ export const metadata: Metadata = {
   description:
     "We help businesses get online in simple, practical ways — clear pages, WhatsApp ordering, location, and easy customer contact. Start small, grow only when it makes sense.",
 
-  metadataBase: new URL("https://post-up-biz.vercel.app/"),
+  verification: {
+    google: "GiI6OdwjfEPoB76qokvjntmo1aFurxreReCVIgKqRwo",
+  },
 
   openGraph: {
     title: "Postup Biz",
     description:
       "Simple online presence for businesses. Clear pages, prices, location, and WhatsApp ordering — without complexity.",
-    url: "https://YOUR_VERCEL_URL.vercel.app",
+    url: SITE_URL,
     siteName: "Postup Biz",
     images: [
       {
@@ -60,10 +67,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="google-site-verification" content="GiI6OdwjfEPoB76qokvjntmo1aFurxreReCVIgKqRwo" />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+
         {children}
       </body>
     </html>
