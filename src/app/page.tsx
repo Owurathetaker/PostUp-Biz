@@ -2,12 +2,12 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-const WHATSAPP_DISPLAY = "020 827 6651";
 const WHATSAPP_LINK =
   "https://wa.me/233208276651?text=Hi%20Postup%20Biz%20👋🏽%0AI%20want%20help%20getting%20my%20business%20online.%0AHere%20is%20my%20business%20page%20or%20location:";
 
+const EMAIL = "broadbinbiz@gmail.com";
+
 function LogoMark() {
-  // Simple, consistent PU monogram in a rounded badge (no external asset needed)
   return (
     <div className="flex items-center gap-2">
       <div className="relative grid size-9 place-items-center rounded-xl bg-gradient-to-br from-indigo-600 to-emerald-500 text-white shadow-sm">
@@ -23,7 +23,16 @@ function Icon({
   name,
   className = "size-5",
 }: {
-  name: "spark" | "whatsapp" | "map" | "search" | "shield" | "paint";
+  name:
+    | "spark"
+    | "whatsapp"
+    | "map"
+    | "search"
+    | "shield"
+    | "paint"
+    | "phone"
+    | "bolt"
+    | "video";
   className?: string;
 }) {
   const common = "fill-none stroke-current stroke-2";
@@ -31,8 +40,14 @@ function Icon({
     case "spark":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path className={common} d="M12 2l1.2 5.2L18 9l-4.8 1.8L12 16l-1.2-5.2L6 9l4.8-1.8L12 2z" />
-          <path className={common} d="M5 14l.7 3L9 18l-3.3 1-0.7 3-0.7-3L1 18l3.3-1 .7-3z" />
+          <path
+            className={common}
+            d="M12 2l1.2 5.2L18 9l-4.8 1.8L12 16l-1.2-5.2L6 9l4.8-1.8L12 2z"
+          />
+          <path
+            className={common}
+            d="M5 14l.7 3L9 18l-3.3 1-0.7 3-0.7-3L1 18l3.3-1 .7-3z"
+          />
         </svg>
       );
     case "whatsapp":
@@ -51,21 +66,30 @@ function Icon({
     case "map":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path className={common} d="M12 21s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10z" />
+          <path
+            className={common}
+            d="M12 21s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10z"
+          />
           <path className={common} d="M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
         </svg>
       );
     case "search":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path className={common} d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" />
+          <path
+            className={common}
+            d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+          />
           <path className={common} d="M16.5 16.5 21 21" />
         </svg>
       );
     case "shield":
       return (
         <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-          <path className={common} d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z" />
+          <path
+            className={common}
+            d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z"
+          />
           <path className={common} d="M9 12l2 2 4-4" />
         </svg>
       );
@@ -82,6 +106,33 @@ function Icon({
           <path className={common} d="M16.5 10.5h0" />
         </svg>
       );
+    case "phone":
+      return (
+        <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            className={common}
+            d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
+          />
+          <path className={common} d="M9 5h6" />
+          <path className={common} d="M12 19h0" />
+        </svg>
+      );
+    case "bolt":
+      return (
+        <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            className={common}
+            d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"
+          />
+        </svg>
+      );
+    case "video":
+      return (
+        <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+          <path className={common} d="M4 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
+          <path className={common} d="M17 10l5-3v10l-5-3v-4z" />
+        </svg>
+      );
   }
 }
 
@@ -93,7 +144,15 @@ function Badge({ children }: { children: ReactNode }) {
   );
 }
 
-function Card({ title, desc, icon }: { title: string; desc: string; icon: ReactNode }) {
+function Card({
+  title,
+  desc,
+  icon,
+}: {
+  title: string;
+  desc: string;
+  icon: ReactNode;
+}) {
   return (
     <div className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start gap-3">
@@ -109,13 +168,49 @@ function Card({ title, desc, icon }: { title: string; desc: string; icon: ReactN
   );
 }
 
-function NavButton({
-  href,
-  children,
+function PackageCard({
+  title,
+  subtitle,
+  icon,
+  bullets,
+  highlight = false,
 }: {
-  href: string;
-  children: ReactNode;
+  title: string;
+  subtitle: string;
+  icon: ReactNode;
+  bullets: string[];
+  highlight?: boolean;
 }) {
+  return (
+    <div
+      className={[
+        "rounded-2xl border bg-white p-6 shadow-sm",
+        highlight ? "border-slate-900/20 ring-1 ring-slate-900/10" : "border-slate-200",
+      ].join(" ")}
+    >
+      <div className="flex items-start gap-3">
+        <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-slate-50 text-slate-900 ring-1 ring-slate-200">
+          {icon}
+        </div>
+        <div>
+          <p className="font-semibold">{title}</p>
+          <p className="mt-1 text-sm text-slate-600">{subtitle}</p>
+        </div>
+      </div>
+
+      <ul className="mt-4 space-y-2 text-sm text-slate-700">
+        {bullets.map((b) => (
+          <li key={b} className="flex gap-2">
+            <span className="mt-[7px] size-1.5 shrink-0 rounded-full bg-slate-900/70" />
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function NavButton({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
       href={href}
@@ -127,8 +222,6 @@ function NavButton({
 }
 
 function HeroVisual() {
-  // Use a real image if you add it to /public/hero-mock.png.
-  // Otherwise, a clean “mockup-style” visual shows the idea without big text blocks.
   const src = "/hero-mock.png";
 
   return (
@@ -137,16 +230,14 @@ function HeroVisual() {
         <p className="text-xs font-medium text-slate-600">What customers see</p>
         <span className="inline-flex items-center gap-2 text-xs text-slate-600">
           <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-          Simple & clear
+          Clear + fast
         </span>
       </div>
 
       <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        {/* Soft fallback behind the image */}
         <div className="relative aspect-[16/11]">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
           <div className="absolute inset-0 p-5">
-            {/* Minimal “UI skeleton” so it still communicates even without an image */}
             <div className="rounded-xl border border-slate-200 bg-white/80 p-4">
               <div className="flex items-center justify-between">
                 <div className="h-3 w-24 rounded bg-slate-200" />
@@ -179,13 +270,12 @@ function HeroVisual() {
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
-            priority={false}
           />
         </div>
       </div>
 
       <p className="mt-4 text-xs text-slate-600">
-        A clear page with prices, location, and WhatsApp ordering — so customers don’t struggle.
+        A simple page that explains your offer clearly — so customers can decide and take action faster.
       </p>
     </div>
   );
@@ -199,11 +289,11 @@ export default function Page() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <LogoMark />
 
-          {/* “How it works” removed from header (still exists in scroll below). */}
           <nav className="flex items-center gap-1">
             <NavButton href="#top">Overview</NavButton>
+            <NavButton href="#services">Services</NavButton>
             <NavButton href="/work">Work</NavButton>
-            <NavButton href="#pricing">Pricing</NavButton>
+            <NavButton href="#packages">Packages</NavButton>
 
             <a
               className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
@@ -211,7 +301,7 @@ export default function Page() {
               target="_blank"
               rel="noreferrer"
             >
-              WhatsApp
+              Get started
             </a>
           </nav>
         </div>
@@ -229,21 +319,21 @@ export default function Page() {
             <div>
               <div className="flex flex-wrap gap-2">
                 <Badge>Remote-friendly</Badge>
-                <Badge>WhatsApp-first</Badge>
-                <Badge>Start simple</Badge>
+                <Badge>Mobile-first</Badge>
+                <Badge>Built for clarity</Badge>
               </div>
 
               <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-                We help businesses get online — simply.
+                We help businesses look professional and convert attention into customers.
               </h1>
 
               <p className="mt-4 text-slate-700">
-                Clear pages that show your prices, location, and how customers can order or
-                contact you easily — without confusion.
+                We build simple, clean websites that explain your offer clearly — products/services, prices (optional),
+                location, delivery, and the best way to reach you.
               </p>
 
               <p className="mt-3 text-sm text-slate-600">
-                Start small. Build more only when it makes sense.
+                Start with a simple setup. When you’re ready, we can add SEO and growth tools to help people find you on Google.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -259,53 +349,50 @@ export default function Page() {
                   rel="noreferrer"
                   className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
                 >
-                  Chat on WhatsApp
+                  Message us
                 </a>
               </div>
-
-              {/* Quick overview button removed (per request) */}
 
               <div className="mt-8 grid grid-cols-3 gap-3 text-xs">
                 <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
                   <div className="flex items-center gap-2 text-slate-800">
-                    <Icon name="whatsapp" className="size-4" />
-                    <p className="font-semibold">Easy ordering</p>
+                    <Icon name="paint" className="size-4" />
+                    <p className="font-semibold">Mockup first</p>
                   </div>
-                  <p className="mt-1 text-slate-600">WhatsApp + Call</p>
+                  <p className="mt-1 text-slate-600">See it before build</p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
                   <div className="flex items-center gap-2 text-slate-800">
                     <Icon name="map" className="size-4" />
-                    <p className="font-semibold">Directions</p>
+                    <p className="font-semibold">Clear info</p>
                   </div>
-                  <p className="mt-1 text-slate-600">Map + location</p>
+                  <p className="mt-1 text-slate-600">Location + hours</p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
                   <div className="flex items-center gap-2 text-slate-800">
                     <Icon name="search" className="size-4" />
-                    <p className="font-semibold">Discovery</p>
+                    <p className="font-semibold">Google-ready</p>
                   </div>
-                  <p className="mt-1 text-slate-600">Found online</p>
+                  <p className="mt-1 text-slate-600">SEO foundation</p>
                 </div>
               </div>
             </div>
 
-            {/* Replaces the “Example of what we build” text card with a visual */}
             <HeroVisual />
           </div>
         </div>
       </section>
 
-      {/* What we do */}
-      <section className="border-t border-slate-200">
+      {/* Services */}
+      <section id="services" className="border-t border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-semibold">What we do</h2>
+              <h2 className="text-2xl font-semibold">Services</h2>
               <p className="mt-2 text-slate-600">
-                Practical online presence that makes your business easier to understand and easier to buy from.
+                Practical online presence that makes your business easier to understand, trust, and buy from.
               </p>
             </div>
             <Badge>Simple, not complicated</Badge>
@@ -313,165 +400,123 @@ export default function Page() {
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <Card
-              title="Clear business page"
-              desc="A clean page with your prices, offer, hours, and contact — in one place."
+              title="Website setup (mobile-first)"
+              desc="A clean one-page site or mini-site that shows your offer clearly — with strong calls to action."
               icon={<Icon name="spark" className="size-5 text-slate-900" />}
             />
             <Card
-              title="WhatsApp ordering"
-              desc="Customers tap to order or ask questions quickly — no stress."
-              icon={<Icon name="whatsapp" className="size-5 text-slate-900" />}
+              title="Copy + branding cleanup"
+              desc="We refine your wording, layout, and structure so customers understand you fast."
+              icon={<Icon name="paint" className="size-5 text-slate-900" />}
             />
             <Card
-              title="Easier to find online"
-              desc="We set it up so people can discover you beyond social media over time."
+              title="Contact + directions"
+              desc="WhatsApp, calls, social links, and map/location — so customers can reach you easily."
+              icon={<Icon name="map" className="size-5 text-slate-900" />}
+            />
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            <Card
+              title="Google Business Profile setup"
+              desc="We help you show up properly on Google Maps and Search with the right info."
+              icon={<Icon name="shield" className="size-5 text-slate-900" />}
+            />
+            <Card
+              title="SEO foundation (Tier 2)"
+              desc="On-page SEO + indexing setup so your site can rank over time for local searches."
               icon={<Icon name="search" className="size-5 text-slate-900" />}
+            />
+            <Card
+              title="AI video ads (Tier 3)"
+              desc="Short promo videos for Reels/TikTok/YouTube Shorts — scripted and edited fast."
+              icon={<Icon name="video" className="size-5 text-slate-900" />}
             />
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            Most businesses don’t need expensive systems. They need clarity.
+            Most businesses don’t need expensive systems. They need clarity, trust, and an easy way for customers to take the next step.
           </p>
         </div>
       </section>
 
-      {/* Work (summary) */}
-      <section id="work" className="border-t border-slate-200 bg-slate-50">
+      {/* Packages (no exact prices) */}
+      <section id="packages" className="border-t border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-semibold">Work examples</h2>
+              <h2 className="text-2xl font-semibold">Packages</h2>
               <p className="mt-2 text-slate-600">
-                We customize the look per business — but keep the experience simple and clear.
+                Choose the level you need now — you can always upgrade later. We customize to your business and style.
               </p>
             </div>
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-            >
-              Get a sample for my business
-            </a>
+            <Badge>No prices on the site</Badge>
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-xs font-medium text-slate-500">Restaurants</p>
-              <p className="mt-2 font-semibold">Menu + WhatsApp ordering</p>
-              <p className="mt-2 text-sm text-slate-600">Problem: customers ask the same questions daily.</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Solution: one clear menu page with prices, location, and order button.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-xs font-medium text-slate-500">Shops & boutiques</p>
-              <p className="mt-2 font-semibold">Catalog + fast contact</p>
-              <p className="mt-2 text-sm text-slate-600">Problem: posts get buried and buyers get tired of scrolling.</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Solution: a catalog page that shows what’s available and how to buy.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-xs font-medium text-slate-500">Service businesses</p>
-              <p className="mt-2 font-semibold">Simple booking/contact page</p>
-              <p className="mt-2 text-sm text-slate-600">Problem: people can’t find details or trust the service quickly.</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Solution: clear service info, pricing, and instant WhatsApp contact.
-              </p>
-            </div>
-          </div>
-
-          <p className="mt-6 text-sm text-slate-600">
-            Want to see real mockups? Use the Work button in the header (it opens the mockups page).
-          </p>
-        </div>
-      </section>
-
-      {/* How it works (kept in scroll, removed from header) */}
-      <section id="process" className="border-t border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 className="text-2xl font-semibold">How it works</h2>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <Card
-              title="1) You show us your business"
-              desc="Send your Instagram, TikTok, WhatsApp, or just your location."
-              icon={<Icon name="spark" className="size-5 text-slate-900" />}
+            <PackageCard
+              title="Tier 1 — Website Setup"
+              subtitle="For businesses that want a clean, professional online presence fast."
+              icon={<Icon name="bolt" className="size-5 text-slate-900" />}
+              bullets={[
+                "Mobile-first landing page or mini-site",
+                "Your products/services, delivery info, hours, location",
+                "Buttons to contact (WhatsApp/call/socials)",
+                "Basic copy cleanup + layout polish",
+                "Launch support + quick handover",
+              ]}
             />
-            <Card
-              title="2) We design a mockup first"
-              desc="You see the layout before anything is built or paid for."
-              icon={<Icon name="paint" className="size-5 text-slate-900" />}
+
+            <PackageCard
+              title="Tier 2 — Website + SEO"
+              subtitle="For businesses that want to show up on Google and get consistent discovery."
+              icon={<Icon name="search" className="size-5 text-slate-900" />}
+              highlight
+              bullets={[
+                "Everything in Tier 1",
+                "Google Business Profile optimization",
+                "Search Console + indexing setup",
+                "On-page SEO (titles, headings, meta, structure)",
+                "Local SEO targeting (city/area keywords)",
+              ]}
             />
-            <Card
-              title="3) We build + connect contact"
-              desc="Customers can find you, understand you, and reach you easily."
-              icon={<Icon name="whatsapp" className="size-5 text-slate-900" />}
+
+            <PackageCard
+              title="Tier 3 — AI Ads + Growth"
+              subtitle="For businesses ready to promote offers with short video content."
+              icon={<Icon name="video" className="size-5 text-slate-900" />}
+              bullets={[
+                "Short promo videos for Reels/TikTok/Shorts",
+                "AI-assisted scripts + hooks + captions",
+                "Multiple variations for testing offers",
+                "Brand-safe visuals + clean editing",
+                "Optional ad setup guidance (on request)",
+              ]}
             />
           </div>
 
-          <p className="mt-6 text-sm text-slate-600">
-            We start simple and improve only when it makes sense for your business.
-          </p>
-        </div>
-      </section>
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="font-semibold">Custom services (optional)</p>
+            <p className="mt-2 text-sm text-slate-600">
+              Need something specific? We can tailor a package for your business.
+            </p>
 
-      {/* Who it's for */}
-      <section className="border-t border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 className="text-2xl font-semibold">Who this is for</h2>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="font-semibold">Good fit</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-                <li>Businesses already selling but lacking clear online presence</li>
-                <li>Owners who want customers to order or contact easily</li>
-                <li>Businesses that want to grow step by step</li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="font-semibold">Not a good fit</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-                <li>People looking for complicated systems from day one</li>
-                <li>Only social media posting</li>
-                <li>Instant or unrealistic promises</li>
-              </ul>
+            <div className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-2">
+              {[
+                "Menu pages for restaurants + location/delivery",
+                "Product catalog pages (sizes, prices, availability)",
+                "Booking/contact pages for service businesses",
+                "Multiple pages (About, Services, FAQs, Reviews)",
+                "Photography / content direction (what to shoot)",
+                "Ongoing updates & maintenance (monthly option)",
+              ].map((item) => (
+                <div key={item} className="flex gap-2">
+                  <span className="mt-[7px] size-1.5 shrink-0 rounded-full bg-slate-900/70" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="border-t border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 className="text-2xl font-semibold">Pricing</h2>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <Card
-              title="No one-size price"
-              desc="Each business is different in size, needs, and stage."
-              icon={<Icon name="spark" className="size-5 text-slate-900" />}
-            />
-            <Card
-              title="Mockup first"
-              desc="You see what you’re paying for before anything is built."
-              icon={<Icon name="paint" className="size-5 text-slate-900" />}
-            />
-            <Card
-              title="Start simple"
-              desc="No unnecessary features. Build more only when needed."
-              icon={<Icon name="shield" className="size-5 text-slate-900" />}
-            />
-          </div>
-
-          <p className="mt-6 text-sm text-slate-600">
-            We can also help your business get found online over time — without making it complicated.
-          </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a
@@ -480,7 +525,7 @@ export default function Page() {
               rel="noreferrer"
               className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
             >
-              Ask for a simple quote on WhatsApp
+              Get a quote (fast)
             </a>
             <a
               href="#contact"
@@ -492,35 +537,114 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Work (summary) */}
+      <section id="work" className="border-t border-slate-200">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <h2 className="text-2xl font-semibold">Work examples</h2>
+              <p className="mt-2 text-slate-600">
+                We keep the experience simple, but we customize the look and structure to match your brand.
+              </p>
+            </div>
+            <a
+              href="/work"
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-slate-50"
+            >
+              Open mockups page
+            </a>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="text-xs font-medium text-slate-500">Restaurants</p>
+              <p className="mt-2 font-semibold">Menu + quick ordering</p>
+              <p className="mt-2 text-sm text-slate-600">One clear menu page with prices, location, and a strong CTA.</p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="text-xs font-medium text-slate-500">Shops & boutiques</p>
+              <p className="mt-2 font-semibold">Catalog + fast contact</p>
+              <p className="mt-2 text-sm text-slate-600">
+                A catalog page that shows what’s available and how customers can reach you quickly.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="text-xs font-medium text-slate-500">Service businesses</p>
+              <p className="mt-2 font-semibold">Simple booking/contact</p>
+              <p className="mt-2 text-sm text-slate-600">
+                Clear services, proof, and a clean way to inquire or book.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section id="process" className="border-t border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <h2 className="text-2xl font-semibold">How it works</h2>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <Card
+              title="1) Share your business"
+              desc="Send your Instagram/TikTok, WhatsApp, or just your location and offerings."
+              icon={<Icon name="spark" className="size-5 text-slate-900" />}
+            />
+            <Card
+              title="2) We design a mockup first"
+              desc="You approve the look and structure before anything goes live."
+              icon={<Icon name="paint" className="size-5 text-slate-900" />}
+            />
+            <Card
+              title="3) We build, launch, and polish"
+              desc="We publish the site and refine details so it’s clean, fast, and clear."
+              icon={<Icon name="shield" className="size-5 text-slate-900" />}
+            />
+          </div>
+
+          <p className="mt-6 text-sm text-slate-600">
+            Start with Tier 1. Upgrade to SEO (Tier 2) or content ads (Tier 3) only when it makes sense for your business.
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer id="contact" className="border-t border-slate-200 bg-slate-50">
+      <footer id="contact" className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-600">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
               <LogoMark />
-              <p className="mt-2">Simple digital presence for businesses — anywhere in the world.</p>
-              <p className="mt-2">We work remotely with businesses across Africa, the US, and beyond.</p>
+              <p className="mt-2">
+                Building simple, focused digital storefronts that create clarity — for brands, shops, and service businesses.
+              </p>
+              <p className="mt-2">Remote-friendly. Fast turnaround. Built to match your brand.</p>
               <p className="mt-3 text-xs text-slate-500">Practical solutions, not complicated systems.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
               <p className="font-semibold text-slate-900">Contact</p>
-              <p className="mt-2">WhatsApp: {WHATSAPP_DISPLAY}</p>
-              <p>Email: broadbinbiz@gmail.com</p>
+              <p className="mt-2">Email: {EMAIL}</p>
+
               <a
-                className="mt-4 inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noreferrer"
               >
-                Chat on WhatsApp
+                Message us
               </a>
+
+              <p className="mt-3 text-xs text-slate-500">
+                Tip: Send your business page link + location + what you sell. We’ll reply with a quick direction + next steps.
+              </p>
             </div>
           </div>
 
           <div className="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
             <p>© {new Date().getFullYear()} Postup Biz</p>
-            <p>Remote digital services for growing businesses.</p>
+            <p>Website setup • SEO foundation • AI video ads</p>
           </div>
         </div>
       </footer>
