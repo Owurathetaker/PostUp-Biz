@@ -293,14 +293,14 @@ export default function Page() {
 
             {/* ✅ tracked WhatsApp CTA */}
             <WhatsAppLink
-              eventLabel="header_whatsapp"
-              className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Get started
-            </WhatsAppLink>
+  href={WHATSAPP_LINK}
+  target="_blank"
+  rel="noreferrer"
+  eventLabel="header_get_started"
+  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+>
+  Get started
+</WhatsAppLink>
           </nav>
         </div>
       </header>
@@ -343,14 +343,14 @@ export default function Page() {
 
                 {/* ✅ tracked WhatsApp CTA */}
                 <WhatsAppLink
-                  eventLabel="hero_whatsapp"
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-                >
-                  Message us
-                </WhatsAppLink>
+  href={WHATSAPP_LINK}
+  target="_blank"
+  rel="noreferrer"
+  eventLabel="header_get_started"
+  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+>
+  Get started
+</WhatsAppLink>
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-3 text-xs">
@@ -534,15 +534,15 @@ export default function Page() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             {/* ✅ tracked WhatsApp CTA */}
-            <WhatsAppLink
-              eventLabel="packages_quote_whatsapp"
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-            >
-              Get a quote (fast)
-            </WhatsAppLink>
+           <WhatsAppLink
+  href={WHATSAPP_LINK}
+  target="_blank"
+  rel="noreferrer"
+  eventLabel="header_get_started"
+  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+>
+  Get started
+</WhatsAppLink>
 
             <a
               href="#contact"
@@ -647,15 +647,15 @@ export default function Page() {
               <p className="mt-2">Email: {EMAIL}</p>
 
               {/* ✅ tracked WhatsApp CTA */}
-              <WhatsAppLink
-                eventLabel="footer_whatsapp"
-                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Message us
-              </WhatsAppLink>
+             <WhatsAppLink
+  href={WHATSAPP_LINK}
+  target="_blank"
+  rel="noreferrer"
+  eventLabel="header_get_started"
+  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+>
+  Get started
+</WhatsAppLink>
 
               <p className="mt-3 text-xs text-slate-500">
                 Tip: Send your business page link + location + what you sell. We’ll reply with a quick direction + next steps.
