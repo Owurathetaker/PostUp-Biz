@@ -322,13 +322,12 @@ export default function Page() {
               </div>
 
               <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-                We help businesses look professional and convert attention into customers.
-              </h1>
+  We help businesses in Ghana and beyond attract and convert attention into customers.
+</h1>
 
               <p className="mt-4 text-slate-700">
-                We build simple, clean websites that explain your offer clearly — products/services, prices (optional),
-                location, delivery, and the best way to reach you.
-              </p>
+  We help businesses turn their online presence into a growth engine -through clarity, search visisbility, and strategic promotion. 
+</p>
 
               <p className="mt-3 text-sm text-slate-600">
                 Start with a simple setup. When you’re ready, we can add SEO and growth tools to help people find you on Google.
@@ -385,6 +384,20 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Ghana + global anchor (SEO + trust) */}
+<section className="border-t border-slate-200 bg-slate-50">
+  <div className="mx-auto max-w-6xl px-4 py-10">
+    <h2 className="text-xl font-semibold text-slate-900">
+      Based in Ghana. Serving businesses globally.
+    </h2>
+    <p className="mt-3 max-w-3xl text-sm text-slate-700">
+      PostUp Biz is a Ghana-based digital studio helping restaurants, boutiques, service providers, and growing brands
+      build simple, high-converting online storefronts. Whether you’re in Accra, Kumasi, London, or New York — we build
+      with clarity, speed, and real business results in mind.
+    </p>
+  </div>
+</section>
 
       {/* Services */}
       <section id="services" className="border-t border-slate-200">
