@@ -13,17 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://post-up-biz.vercel.app"; // ✅ replace with your real Vercel URL if different
-const GA_ID = "G-C7E69Y2JKM"; // ✅ your measurement ID
+const SITE_URL = "https://post-up-biz.vercel.app";
+const GA_ID = "G-C7E69Y2JKM";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
   title: {
-    default: "Postup Biz — Simple online presence for businesses",
+    default: "Postup Biz — Digital presence, SEO & growth systems",
     template: "%s | Postup Biz",
   },
+
   description:
-    "We help businesses get online in simple, practical ways — clear pages, WhatsApp ordering, location, and easy customer contact. Start small, grow only when it makes sense.",
+    "We help businesses build clarity, visibility, and growth systems — from clean digital presence to SEO foundations and paid growth channels.",
 
   verification: {
     google: "GiI6OdwjfEPoB76qokvjntmo1aFurxreReCVIgKqRwo",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Postup Biz",
     description:
-      "Simple online presence for businesses. Clear pages, prices, location, and WhatsApp ordering — without complexity.",
+      "Digital presence, SEO foundations, and growth systems for modern businesses.",
     url: SITE_URL,
     siteName: "Postup Biz",
     images: [
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Postup Biz — Simple online presence for businesses",
+        alt: "Postup Biz — Digital presence & growth systems",
       },
     ],
     locale: "en_US",
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Postup Biz",
     description:
-      "We help businesses get online simply — pages, WhatsApp ordering, and clarity that converts.",
+      "Digital presence, SEO foundations, and growth systems for modern businesses.",
     images: ["/og.png"],
   },
 
@@ -62,23 +64,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+
+        <Script id="ga-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+
             gtag('js', new Date());
-            gtag('config', '${GA_ID}');
+
+            gtag('config', '${GA_ID}', {
+              debug_mode: true
+            });
           `}
         </Script>
 
