@@ -148,7 +148,15 @@ function Badge({ children }: { children: ReactNode }) {
   );
 }
 
-function Card({ title, desc, icon }: { title: string; desc: string; icon: ReactNode }) {
+function Card({
+  title,
+  desc,
+  icon,
+}: {
+  title: string;
+  desc: string;
+  icon: ReactNode;
+}) {
   return (
     <div className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start gap-3">
@@ -181,7 +189,9 @@ function PackageCard({
     <div
       className={[
         "rounded-2xl border bg-white p-6 shadow-sm",
-        highlight ? "border-slate-900/20 ring-1 ring-slate-900/10" : "border-slate-200",
+        highlight
+          ? "border-slate-900/20 ring-1 ring-slate-900/10"
+          : "border-slate-200",
       ].join(" ")}
     >
       <div className="flex items-start gap-3">
@@ -271,7 +281,7 @@ function HeroVisual() {
       </div>
 
       <p className="mt-4 text-xs text-slate-600">
-        A simple page that explains your offer clearly — so customers can decide and take action faster.
+        A clean storefront that explains your offer — plus upgrades for discovery and promotion.
       </p>
     </div>
   );
@@ -293,14 +303,14 @@ export default function Page() {
 
             {/* ✅ tracked WhatsApp CTA */}
             <WhatsAppLink
-  href={WHATSAPP_LINK}
-  target="_blank"
-  rel="noreferrer"
-  eventLabel="header_get_started"
-  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
->
-  Get started
-</WhatsAppLink>
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+              eventLabel="cta_header_get_started"
+              className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+            >
+              Get started
+            </WhatsAppLink>
           </nav>
         </div>
       </header>
@@ -322,15 +332,16 @@ export default function Page() {
               </div>
 
               <h1 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">
-  We help businesses in Ghana and beyond attract and convert attention into customers.
-</h1>
+                We build simple online presence to help businesses attract, and convert attention into customers.
+              </h1>
 
               <p className="mt-4 text-slate-700">
-  We help businesses turn their online presence into a growth engine -through clarity, search visisbility, and strategic promotion. 
-</p>
+                PostUp Biz helps businesses turn attention into customers with clear pages, better Google visibility, and
+                promo content that supports your offers.
+              </p>
 
               <p className="mt-3 text-sm text-slate-600">
-                Start with a simple setup. When you’re ready, we can add SEO and growth tools to help people find you on Google.
+                Start with a clean setup. Add indexing + SEO. Then add content/ads when it makes sense.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -341,16 +352,15 @@ export default function Page() {
                   View our mockups
                 </a>
 
-                {/* ✅ tracked WhatsApp CTA */}
                 <WhatsAppLink
-  href={WHATSAPP_LINK}
-  target="_blank"
-  rel="noreferrer"
-  eventLabel="header_get_started"
-  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
->
-  Get started
-</WhatsAppLink>
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                  eventLabel="cta_hero_get_started"
+                  className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+                >
+                  Get started
+                </WhatsAppLink>
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-3 text-xs">
@@ -359,15 +369,7 @@ export default function Page() {
                     <Icon name="paint" className="size-4" />
                     <p className="font-semibold">Mockup first</p>
                   </div>
-                  <p className="mt-1 text-slate-600">See it before build</p>
-                </div>
-
-                <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
-                  <div className="flex items-center gap-2 text-slate-800">
-                    <Icon name="map" className="size-4" />
-                    <p className="font-semibold">Clear info</p>
-                  </div>
-                  <p className="mt-1 text-slate-600">Location + hours</p>
+                  <p className="mt-1 text-slate-600">Approve before build</p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
@@ -375,7 +377,15 @@ export default function Page() {
                     <Icon name="search" className="size-4" />
                     <p className="font-semibold">Google-ready</p>
                   </div>
-                  <p className="mt-1 text-slate-600">SEO foundation</p>
+                  <p className="mt-1 text-slate-600">Indexing + SEO</p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur">
+                  <div className="flex items-center gap-2 text-slate-800">
+                    <Icon name="video" className="size-4" />
+                    <p className="font-semibold">Promotion</p>
+                  </div>
+                  <p className="mt-1 text-slate-600">Short ads + creatives</p>
                 </div>
               </div>
             </div>
@@ -385,20 +395,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Ghana + global anchor (SEO + trust) */}
-<section className="border-t border-slate-200 bg-slate-50">
-  <div className="mx-auto max-w-6xl px-4 py-10">
-    <h2 className="text-xl font-semibold text-slate-900">
-      Based in Ghana. Serving businesses globally.
-    </h2>
-    <p className="mt-3 max-w-3xl text-sm text-slate-700">
-      PostUp Biz is a Ghana-based digital studio helping restaurants, boutiques, service providers, and growing brands
-      build simple, high-converting online storefronts. Whether you’re in Accra, Kumasi, London, or New York — we build
-      with clarity, speed, and real business results in mind.
-    </p>
-  </div>
-</section>
-
       {/* Services */}
       <section id="services" className="border-t border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-12">
@@ -406,10 +402,11 @@ export default function Page() {
             <div>
               <h2 className="text-2xl font-semibold">Services</h2>
               <p className="mt-2 text-slate-600">
-                Practical online presence that makes your business easier to understand, trust, and buy from.
+                Practical digital setup that helps customers understand you fast — plus upgrades for discovery and growth.
               </p>
             </div>
-            <Badge>Simple, not complicated</Badge>
+
+            {/* ✅ removed: <Badge>Simple, not complicated</Badge> */}
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -419,8 +416,8 @@ export default function Page() {
               icon={<Icon name="spark" className="size-5 text-slate-900" />}
             />
             <Card
-              title="Copy + branding cleanup"
-              desc="We refine your wording, layout, and structure so customers understand you fast."
+              title="Copy + positioning cleanup"
+              desc="We tighten your wording and structure so customers immediately get what you do and why it matters."
               icon={<Icon name="paint" className="size-5 text-slate-900" />}
             />
             <Card
@@ -437,19 +434,19 @@ export default function Page() {
               icon={<Icon name="shield" className="size-5 text-slate-900" />}
             />
             <Card
-              title="SEO foundation (Tier 2)"
-              desc="On-page SEO + indexing setup so your site can rank over time for local searches."
+              title="Indexing + SEO foundation (Tier 2)"
+              desc="Search Console + on-page SEO so your site can rank over time for the right searches."
               icon={<Icon name="search" className="size-5 text-slate-900" />}
             />
             <Card
-              title="AI video ads (Tier 3)"
-              desc="Short promo videos for Reels/TikTok/YouTube Shorts — scripted and edited fast."
+              title="AI ads + growth creatives (Tier 3)"
+              desc="Short promo videos and variations for Reels/TikTok/Shorts — built around your offers."
               icon={<Icon name="video" className="size-5 text-slate-900" />}
             />
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            Most businesses don’t need expensive systems. They need clarity, trust, and an easy way for customers to take the next step.
+            The goal is not “a website.” The goal is clarity + visibility + a simple next step that converts.
           </p>
         </div>
       </section>
@@ -464,7 +461,8 @@ export default function Page() {
                 Choose the level you need now — you can always upgrade later. We customize to your business and style.
               </p>
             </div>
-            <Badge>No prices on the site</Badge>
+
+            {/* ✅ removed: <Badge>No prices on the site</Badge> */}
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -474,7 +472,7 @@ export default function Page() {
               icon={<Icon name="bolt" className="size-5 text-slate-900" />}
               bullets={[
                 "Mobile-first landing page or mini-site",
-                "Your products/services, delivery info, hours, location",
+                "Your products/services, hours, delivery, location",
                 "Buttons to contact (WhatsApp/call/socials)",
                 "Basic copy cleanup + layout polish",
                 "Launch support + quick handover",
@@ -488,10 +486,10 @@ export default function Page() {
               highlight
               bullets={[
                 "Everything in Tier 1",
-                "Google Business Profile optimization",
+                "Google Business Profile optimization (optional)",
                 "Search Console + indexing setup",
                 "On-page SEO (titles, headings, meta, structure)",
-                "Local SEO targeting (city/area keywords)",
+                "Keyword targeting (local or global)",
               ]}
             />
 
@@ -508,31 +506,30 @@ export default function Page() {
               ]}
             />
           </div>
-          {/* Free Audit CTA */}
-<section className="border-t border-slate-200 bg-white">
-  <div className="mx-auto max-w-6xl px-4 py-12">
-    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="text-xs font-medium text-slate-600">Free offer</p>
-          <h3 className="mt-1 text-xl font-semibold">
-            Get a free 3-point audit of your online presence
-          </h3>
-          <p className="mt-2 text-sm text-slate-600">
-            Clarity + SEO basics + one growth opportunity tailored to your business.
-          </p>
-        </div>
 
-        <a
-          href="/free-audit"
-          className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-        >
-          Get the free audit
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Free Audit CTA */}
+          <section className="mt-6">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="text-xs font-medium text-slate-600">Free offer</p>
+                  <h3 className="mt-1 text-xl font-semibold">
+                    Get a free 3-point audit of your online presence
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-600">
+                    Clarity + indexing/SEO basics + one growth opportunity tailored to your business.
+                  </p>
+                </div>
+
+                <a
+                  href="/free-audit"
+                  className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+                >
+                  Get the free audit
+                </a>
+              </div>
+            </div>
+          </section>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p className="font-semibold">Custom services (optional)</p>
@@ -546,7 +543,7 @@ export default function Page() {
                 "Product catalog pages (sizes, prices, availability)",
                 "Booking/contact pages for service businesses",
                 "Multiple pages (About, Services, FAQs, Reviews)",
-                "Photography / content direction (what to shoot)",
+                "Content direction (what to shoot + what to post)",
                 "Ongoing updates & maintenance (monthly option)",
               ].map((item) => (
                 <div key={item} className="flex gap-2">
@@ -558,16 +555,15 @@ export default function Page() {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            {/* ✅ tracked WhatsApp CTA */}
-           <WhatsAppLink
-  href={WHATSAPP_LINK}
-  target="_blank"
-  rel="noreferrer"
-  eventLabel="header_get_started"
-  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
->
-  Get started
-</WhatsAppLink>
+            <WhatsAppLink
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+              eventLabel="cta_packages_get_started"
+              className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+            >
+              Get started
+            </WhatsAppLink>
 
             <a
               href="#contact"
@@ -633,7 +629,7 @@ export default function Page() {
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <Card
               title="1) Share your business"
-              desc="Send your Instagram/TikTok, WhatsApp, or just your location and offerings."
+              desc="Send your Instagram/TikTok, website, or just your location and what you sell."
               icon={<Icon name="spark" className="size-5 text-slate-900" />}
             />
             <Card
@@ -643,13 +639,13 @@ export default function Page() {
             />
             <Card
               title="3) We build, launch, and polish"
-              desc="We publish the site and refine details so it’s clean, fast, and clear."
+              desc="We publish and refine details so it’s clean, fast, and conversion-ready."
               icon={<Icon name="shield" className="size-5 text-slate-900" />}
             />
           </div>
 
           <p className="mt-6 text-sm text-slate-600">
-            Start with Tier 1. Upgrade to SEO (Tier 2) or content ads (Tier 3) only when it makes sense for your business.
+            Start with Tier 1. Upgrade to SEO (Tier 2) or growth creatives (Tier 3) when it makes sense.
           </p>
         </div>
       </section>
@@ -661,26 +657,33 @@ export default function Page() {
             <div>
               <LogoMark />
               <p className="mt-2">
-                Building simple, focused digital storefronts that create clarity — for brands, shops, and service businesses.
+                A practical digital studio: clean storefronts, indexing + SEO, and growth creatives for offers.
               </p>
               <p className="mt-2">Remote-friendly. Fast turnaround. Built to match your brand.</p>
-              <p className="mt-3 text-xs text-slate-500">Practical solutions, not complicated systems.</p>
+              <p className="mt-3 text-xs text-slate-500">Clarity • Visibility • Growth</p>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
               <p className="font-semibold text-slate-900">Contact</p>
-              <p className="mt-2">Email: {EMAIL}</p>
 
-              {/* ✅ tracked WhatsApp CTA */}
-             <WhatsAppLink
-  href={WHATSAPP_LINK}
-  target="_blank"
-  rel="noreferrer"
-  eventLabel="header_get_started"
-  className="ml-1 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
->
-  Get started
-</WhatsAppLink>
+              {/* ✅ email will never be covered (wrap + spacing) */}
+              <p className="mt-2 text-sm">
+                Email:{" "}
+                <span className="break-all font-medium text-slate-900">
+                  {EMAIL}
+                </span>
+              </p>
+
+              {/* ✅ full width button + top margin (no overlap on mobile) */}
+              <WhatsAppLink
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noreferrer"
+                eventLabel="cta_footer_get_started"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+              >
+                Get started
+              </WhatsAppLink>
 
               <p className="mt-3 text-xs text-slate-500">
                 Tip: Send your business page link + location + what you sell. We’ll reply with a quick direction + next steps.
@@ -690,7 +693,7 @@ export default function Page() {
 
           <div className="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
             <p>© {new Date().getFullYear()} Postup Biz</p>
-            <p>Website setup • SEO foundation • AI video ads</p>
+            <p>Website setup • SEO + indexing • Ads + growth creatives</p>
           </div>
         </div>
       </footer>
