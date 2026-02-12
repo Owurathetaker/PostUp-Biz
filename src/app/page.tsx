@@ -2,6 +2,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import WhatsAppLink from "@/components/WhatsAppLink";
+import TrackedLink from "@/components/TrackedLink";
 
 const WHATSAPP_LINK =
   "https://wa.me/233208276651?text=Hi%20Postup%20Biz%20👋🏽%0AI%20want%20help%20getting%20my%20business%20online.%0AHere%20is%20my%20business%20page%20or%20location:";
@@ -521,12 +522,14 @@ export default function Page() {
                   </p>
                 </div>
 
-                <a
-                  href="/free-audit"
-                  className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
-                >
-                  Get the free audit
-                </a>
+                <TrackedLink
+  href="/free-audit"
+  eventName="free_audit_click"
+  eventLabel="free_audit_section"
+  className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+>
+  Get the free audit
+</TrackedLink>
               </div>
             </div>
           </section>
