@@ -508,6 +508,31 @@ export default function Page() {
               ]}
             />
           </div>
+          {/* Free Audit CTA */}
+<section className="border-t border-slate-200 bg-white">
+  <div className="mx-auto max-w-6xl px-4 py-12">
+    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-xs font-medium text-slate-600">Free offer</p>
+          <h3 className="mt-1 text-xl font-semibold">
+            Get a free 3-point audit of your online presence
+          </h3>
+          <p className="mt-2 text-sm text-slate-600">
+            Clarity + SEO basics + one growth opportunity tailored to your business.
+          </p>
+        </div>
+
+        <a
+          href="/free-audit"
+          className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800"
+        >
+          Get the free audit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p className="font-semibold">Custom services (optional)</p>
